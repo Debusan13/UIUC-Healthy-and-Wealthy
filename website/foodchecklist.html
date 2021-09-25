@@ -1,59 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Healthy & Wealthy</title>
-	<link rel ="stylesheet" type = "text/css" href ="pyghack2021.css">
-</head>
-<!--the styling in order to put nav bar and favicon-->
-<body>
-<!--puts the adoption center at the top of the page and has the slogan-->
-<ul>
-  <li><a class="active" href="pyghack2021main.html">Home</a></li>
-  <li><a href="foodchecklist.html">Add meals</a></li>
-  <li><a href="yourprogress.html">Rewards</a></li>
-</ul>
-<form action = "firstformsubmission.html" method ="post" align="center" >
-    <fieldset style="color:black">
-        <br>
-        *NetID: <input style = "border-radius: 25px;"type="text" name ="name"  required >
+  <head>
+    <title>Healthy & Wealthy</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" type="text/css" href="pyghack2021.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
+  </head>
+  <!--the styling in order to put nav bar and favicon-->
+  <body>
+    <!--puts the adoption center at the top of the page and has the slogan-->
+    <ul>
+      <li><a class="active" href="pyghack2021main.html">Home</a></li>
+      <li><a href="foodchecklist.html">Add meals</a></li>
+      <li><a href="yourprogress.html">Rewards</a></li>
+    </ul>
+    <form action="firstformsubmission.html" method="post" align="center">
+      <fieldset style="color: black;">
+        <br />
+        *NetID: <input style="border-radius: 25px;" type="text" name="name" required />
         <!--type in answer-->
-        *Password: <input style = "border-radius: 100px;"type="text" name = "email" size = "50" required>
+        *Password: <input style="border-radius: 100px;" type="text" name="email" size="50" required />
         <label for="workload">Dining Hall:</label>
         <select name="workload" id="workload">
-            <option value="behind">IKE</option>
-            <option value="ahead">57 North</option>
-            <option value="middle">ISR</option>
-            <option value="ahead">PAR</option>
-            <option value="ahead">LAR</option>
-            <option value="ahead">FAR</option>
-            <option value="ahead">Good2Go</option>
-
-
-
+          <option value="behind">IKE</option>
+          <option value="ahead">57 North</option>
+          <option value="middle">ISR</option>
+          <option value="ahead">PAR</option>
+          <option value="ahead">LAR</option>
+          <option value="ahead">FAR</option>
+          <option value="ahead">Good2Go</option>
         </select>
         <!--creates the dropbox question-->
-        <br>
-        <label for="hour">Chicken</label>
-        <input type="number" id="hour" min="0" max="10" />
-        <br>
-        <label for="hour">Lettuce</label>
-        <input type="number" id="hour" min="0" max="10" />
-        <br>
-        <label for="hour">Pasta</label>
-        <input type="number" id="hour" min="0" max="10" />
-        <p> Anything else you would like to share? </p>
-        <textarea style="width:200px; height:50px; border-radius: 25px;"></textarea>
+        <br />
+        <div id="food-list">
+          <!--<div class="food-list-entry">
+            <label for="hour">Chicken</label>
+            <input type="number" id="hour" min="0" max="10" />
+            <br />
+          </div>
+          <div class="food-list-entry">
+            <label for="hour">Lettuce</label>
+            <input type="number" id="hour" min="0" max="10" />
+            <br />
+          </div>
+          <div class="food-list-entry">
+            <label for="hour">Duck</label>
+            <input type="number" id="hour" min="0" max="10" />
+            <br />
+          </div>-->
+        </div>
+        <p>Anything else you would like to share?</p>
+        <textarea style="width: 200px; height: 50px; border-radius: 25px;"></textarea>
         <!--creates the text box for your week-->
-        </fieldset>
-        <br>
-        <input type="checkbox" id="check" name="verification" value="check" required>
-        <label for="male">Are you a robot?</label>
-        <!--codes the checkbox-->
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-        <!--creates submit and reset button-->
+      </fieldset>
+      <br />
+      <input type="checkbox" id="check" name="verification" value="check" required />
+      <label for="male">Are you a robot?</label>
+      <!--codes the checkbox-->
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+      <!--creates submit and reset button-->
     </form>
-    </body>
-    </html>
+    <script src="js/list.js"></script>
+    <script src="js/load_list.js"></script>
+  </body>
+</html>
