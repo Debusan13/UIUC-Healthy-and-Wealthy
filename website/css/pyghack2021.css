@@ -2,7 +2,7 @@ body, html {
     height: 100%;
 }
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("homepyghack.jpeg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../img/homepyghack.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
