@@ -1,7 +1,7 @@
 import json
 from flask.helpers import send_from_directory
 import requests
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from main import *
 
 # hall_data = {}
@@ -28,7 +28,7 @@ from main import *
 
 app = Flask(__name__)
 
-hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/aa7ca29284606c3c7b3c12302766c126a4096131/food_data.json').text
+hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/35e7e263654e6c3549b37096037a1ded72fb08ae/food_data.json').text
 
 @app.route('/img/<path:path>')
 def serve_img(path):
@@ -42,9 +42,15 @@ def serve_js(path):
 def serve_css(path):
     return send_from_directory('website/css', path)
 
-@app.route('/')
+@app.route('/pyghack2021main.html')
+@app.route('/', methods=['POST', 'GET'])
 def serve_main():
+    if not request.get_json() == None:
+        data = request.get_json()
+        targets = get_targets(data)
+        return jsonify(targets)
     return send_from_directory('website', 'pyghack2021main.html')
+    # return render_template('website/pyghack2021main.html')
 
 @app.route('/checklist')
 def serve_checklist():
@@ -66,3 +72,4 @@ def get_hall_info():
         mimetype='application/json'
     )
     return response
+

@@ -5,9 +5,11 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
 	<link rel ="stylesheet" type = "text/css" href ="css/pyghack2021.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
+
 <body>
 
 <nav style="background-color: black;" class="navbar navbar-expand-lg navbar-dark">
@@ -32,6 +34,35 @@
 </div>
 <!--the information in the nav bar-->
 <br>
+<div class='container'>
+	<h3>What is your weight?</h3>
+		<form class='info'>
+			<input type=number size=15 id='weight'>
+			<input type=number size=15 id='height_ft'>
+			<input type=number size=15 id='height_in'>
+			<input type=number size=15 id='age'>
+			<select id='sex'>
+				<option value="1">Male</option>
+				<option value="2">Female</option>
+			</select>
+			<select id='activity_level'>
+				<option value="1">Little to no excercise</option>
+				<option value="2">Light excercise, 1-3 days per week</option>
+				<option value="3">Moderatly active, 3-5 days per week</option>
+				<option value="4">Hard excercise, 6-7 days per week</option>
+				<option value="5">Very hard excercise, 2 times per day</option>
+			</select>
+			<select id='goal'>
+				<option value="1">Gain Weight</option>
+				<option value="2">Lose Weightk</option>
+				<option value="3">Maintain Weight</option>
+			</select>
+
+			<button class='btn btn-default' type='button' id='process_input'>Submit</button>
+		</form>
+</div>
+<p>result</p>
+<br>
 <div class="row">
   <div class="column left"><img style="border-radius: 75px;" width="98%" src="img/homepyghack.jpg"> </div>
 	<div class="column right">
@@ -44,6 +75,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 </body>
+<script src=js/main.js></script>
 </html>
 
 

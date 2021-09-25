@@ -5,6 +5,51 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 from typing import List
 
+def get_targets(data):
+    daily_cal = 0
+    bmr = 0
+    protien = 0
+
+    if int(data['sex']) == 1 : #male
+        height = (int(data['height_ft']) * 12) + int(data['height_in'])
+        bmr = 66 + (6.3*int(data['weight'])) + (12.9 * height) - (6.8 * int(data['age']))
+
+    if int(data['sex']) == 2 : #female
+        height = (int(data['height_ft']) * 12) + int(data['height_in'])
+        bmr = 655 + (4.3*int(data['weight'])) + (4.7 * height) - (4.7 * int(data['age']))
+        
+    if int(data['activity_level']) == 1:
+        daily_cal = int(bmr*1.2)
+        protien = int((int(data['weight']) / 2.2) * .5)
+    elif int(data['activity_level']) == 2:
+        daily_cal = int(bmr*1.2)
+        protien = int((int(data['weight']) / 2.2) * .8)
+    elif int(data['activity_level']) == 3:
+        daily_cal = int(bmr*1.2)
+        protien = int((int(data['weight']) / 2.2) * 1.2)
+    elif int(data['activity_level']) == 4:
+        daily_cal = int(bmr*1.2)
+        protien = int((int(data['weight']) / 2.2) * 1.5)
+    elif int(data['activity_level']) == 5:
+        daily_cal = int(bmr*1.2)
+        protien = int((int(data['weight']) / 2.2) * 1.7)
+        
+    if int(data['goal']) == 1:
+        daily_cal = int(daily_cal*1.2)
+    if int(data['goal']) == 2:
+        daily_cal = int(daily_cal*.8)
+
+    fat = int(daily_cal * .3 / 9)
+
+
+    targets = {
+        'daily_cal' : daily_cal,
+        'protien' : protien,
+        'sugar' : 30,
+        'fat' : fat,
+        'cholesterol' : 200
+    }
+    return targets
 
 s = r.Session()
 
