@@ -101,6 +101,11 @@ def get_nutritional_info(food_id):
 
     table = soup.select_one('.cbo_nn_NutritionLabelTable')
     children = list(table.children)
+
+    calories = children[4].select_one('tr > td > table > tr > td')
+    if calories is not None:
+        result['Calories'] = clean(list(calories.children)[2].text)
+    
     for child in children[6:-3]:
         container = child.select_one('tr > td > table > tr > td > table > tr')
         if container is None:
