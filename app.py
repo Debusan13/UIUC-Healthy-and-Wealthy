@@ -1,4 +1,5 @@
 import json
+from flask.helpers import send_from_directory
 import requests
 from flask import Flask, render_template, jsonify
 from main import *
@@ -25,10 +26,19 @@ from main import *
 
 # scrape_api()
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/aa7ca29284606c3c7b3c12302766c126a4096131/food_data.json').text
 print(hall_data[:100])
+
+@app.route('/js/<path:path>')
+def serve_js(path):
+        return send_from_directory('js', path)
+
+@app.route('/css/<path:path>')
+def serve_css(path):
+        return send_from_directory('css', path)
+
 
 @app.route('/get_hall_info')
 def get_hall_info():
