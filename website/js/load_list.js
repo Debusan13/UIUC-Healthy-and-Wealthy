@@ -15,13 +15,12 @@ for (const [dining_hall_name, food_items] of Object.entries(dining_data)) {
 }
 
 $("#dining-halls").on('change', function() {
-    let optionSelected = $("option:checked", this)
     let valueSelected = this.value
 
     $('#food-list').empty()
     for (const [food_name, data] of Object.entries(dining_data[valueSelected])) {
         $('#food-list').append($(`
-            <div class="row">
+            <div class="row food-list-entry">
                 <div class="col-3"></div>
                 <div class="text-left col-3">
                     <label for="hour">${food_name}</label>
@@ -47,30 +46,35 @@ $("#dining-halls").trigger('change')
 $('#form-thingy').on('submit', function(e) {
     e.preventDefault()
 
+    const myname = $('#name-field').val()
+
     let points = 0
-    $('.food-list-entry > input').each(function(index, element) {
+    $('.food-list-entry > div > input').each(function(index, element) {
         let point = parseInt(element.value)
         if (Number.isInteger(point)) {
             points += point
         }
     })
-    const myname = $('name-field').val()
+    
     $('#point-label').html(myname + ', have ' + points + ' points available')
-    // window.localStorage.setItem('myname', myname)
-    // console.log(window.localStorage.getItem('myname'))
-    // window.localStorage.setItem('mypoints', points)
+    localStorage.setItem('myname', myname)
+    localStorage.setItem('mynetid', myname)
+    localStorage.setItem('mypoints', points)
+    window.scrollTo(0, 0)
 })
 
-// $(function() {
-//     const myname = localStorage.getItem('myname')
-//     console.log(myname)
-//     const mypoints = localStorage.getItem('mypoints')
-//     if (myname !== null && mypoints !== null && myname !== undefined && mypoints !== undefined) {
-//         $('#point-label').html(myname + ', have ' + mypoints + ' points available')
-//     } else {
-//         $('#point-label').html('e')
-//     }
-// })
+$(function() {
+    const myname = localStorage.getItem('myname')
+    const mynetid = localStorage.getItem('mynetid')
+    const mypoints = localStorage.getItem('mypoints')
+    if (myname !== null && mypoints !== null && myname !== undefined && mypoints !== undefined) {
+        $('#point-label').html(myname + ', you have ' + mypoints + ' points available')
+        $('#name-field').val(myname)
+        $('#netid-field').val(mynetid)
+    } else {
+        $('#point-label').html('No points!')
+    }
+})
 
 
 
