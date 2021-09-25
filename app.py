@@ -30,6 +30,10 @@ app = Flask(__name__)
 
 hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/aa7ca29284606c3c7b3c12302766c126a4096131/food_data.json').text
 
+@app.route('/img/<path:path>')
+def serve_img(path):
+        return send_from_directory('website/img', path)
+
 @app.route('/js/<path:path>')
 def serve_js(path):
         return send_from_directory('website/js', path)
@@ -38,9 +42,20 @@ def serve_js(path):
 def serve_css(path):
         return send_from_directory('website/css', path)
 
+@app.route('/pyghack2021main.html')
 @app.route('/')
 def serve_main():
     return send_from_directory('website', 'pyghack2021main.html')
+
+@app.route('/foodchecklist.html')
+@app.route('/checklist')
+def serve_checklist():
+    return send_from_directory('website', 'foodchecklist.html')
+
+@app.route('/yourprogress.html')
+@app.route('/progress')
+def serve_progress():
+    return send_from_directory('website', 'yourprogress.html')
 
 @app.route('/<path:path>')
 def serve_add_meals(path):
