@@ -1,24 +1,23 @@
-$(document).ready(() => {
-    $('.info').on('submit', () => {
-        return false;
-    });
-});
+// $(document).ready(() => {
+//     $('.info').on('submit', () => {
+//         return false;
+//     });
+// });
 
-//pressing the button
-$('#process_input').click(function(){
-    $('.info').submit();
-})
+// //pressing the button
+// $('#process_input').click(function(){
+//     $('.info').submit();
+// })
 
-//pressing enter
-$('.info').keypress((e) => {
-    if (e.which === 13) {
-        $('.info').submit();
-    }
-})
+// //pressing enter
+// $('.info').keypress((e) => {
+//     if (e.which === 13) {
+//         $('.info').submit();
+//     }
+// })
 
 //submitting form info
-$('form').submit(function (e) {
-    e.preventDefault();
+$("#process_input").on("click", function () {
     var weight = $('#weight').val();
     var height_ft = $('#height_ft').val();
     var height_in = $('#height_in').val();
@@ -37,7 +36,6 @@ $('form').submit(function (e) {
         "goal" : goal
     }
     
-    console.log(data)
     $.ajax({
         type:'POST',
         url:'/',
@@ -45,7 +43,13 @@ $('form').submit(function (e) {
         data : JSON.stringify(data)
     })
     .done(function(data) {
-        console.log(data); // person's goals
+        // console.log(data); // person's goals
+        localStorage.setItem("cholesterol", data["cholesterol"]);
+        localStorage.setItem("daily_cal", data["daily_cal"]);
+        localStorage.setItem("fat", data["fat"]);
+        localStorage.setItem("protien", data["protien"]);
+        localStorage.setItem("sugar", data["sugar"]);
+
     })
 })
 

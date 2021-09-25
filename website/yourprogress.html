@@ -26,18 +26,75 @@
   </div>
 </nav>
 <div class="container">
-  <h1 class="mt-4 text-center">Points Until Next Reward</h1>
-  <div class="mt-2 row text-center cir">
-    <div class="col-xs-12 col-sm-12 offset-md-4 col-md-4 col-lg-4 col-xl-4">
-        <svg width="120" height="120" viewBox="0 0 120 120">
+  <h1 class="mt-4 text-center">Progress</h1>
+
+<div class="row text-center cir">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+         <svg width="120" height="120" viewBox="0 0 120 120">
             <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
-            <circle id="progress-circle" cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+            <circle id="progress-circle" cx="60" cy="60" r="54" fill="none" stroke="#28a745" stroke-width="12"
                 stroke-dasharray="339.292" stroke-dashoffset="283%" /> <!--25.717-->
             <text x="50%" y="50%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="my-points" class="inner"></text>
             <text x="50%" y="70%" text-anchor="middle" style="font-size: 13px;" class="inner">/100</text>
-        </svg>
-    </div>
-</div>
+          </svg>
+                  <p class="sub">Your Points</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="170%" />
+                        <text x="50%" y="45%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="cholesterol_progress" class="inner"></text>
+                        <text x="50%" y="65%" text-anchor="middle" style="font-size: 13px;" id="cholesterol_goal" class="inner"></text>
+                    </svg>
+                    <p class="sub">Cholesterol Goal</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="226%" />
+                        <text x="50%" y="45%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="daily_cal_progress" class="inner"></text>
+                        <text x="50%" y="65%" text-anchor="middle" style="font-size: 13px;" id="daily_cal_goal" class="inner"></text>
+                    </svg>
+                    <p class="sub"> Daily Calorie Goal</p>
+                </div>
+            </div>
+        
+<div class="row text-center cir">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="57%" />
+                        <text x="50%" y="45%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="fat_progress" class="inner"></text>
+                        <text x="50%" y="65%" text-anchor="middle" style="font-size: 13px;" id="fat_goal" class="inner"></text>
+                    </svg>
+                    <p class="sub">Fat Goal</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="85%" />
+                        <text x="50%" y="45%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="protein_progress" class="inner"></text>
+                        <text x="50%" y="65%" text-anchor="middle" style="font-size: 13px;" id="protein_goal" class="inner"></text>
+                    </svg>
+                    <p class="sub">Protein Goal</p>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="143%" />
+                        <text x="50%" y="45%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" id="sugar_progress" class="inner"></text>
+                        <text x="50%" y="65%" text-anchor="middle" style="font-size: 13px;" id="sugar_goal" class="inner"></text>
+                    </svg>
+                    <p class="sub">Sugar Goal</p>
+                </div>
+            </div>
+
+            </div>
 
   <h1 class="mt-3 text-center">Rewards</h1>
   <div class="row">
@@ -93,6 +150,25 @@
         <img class="card-img-top img-adjusted" src="img/img9.jpg">
             <p>Walgreens <span class="badge badge-danger">Limited offer</span> <span class="badge badge-success">15% off</span></p>
 
+      </div>
+    </div>
+  </div>
+  </div>
+    <h1 class="mt-3 text-center">Promotional Events</h1>
+  <div class="row">
+    <div class="col-12">
+    <div class="d-flex align-items-stretch card-deck">
+      <div class="card" style="border: 0;">
+        <img class="card-img-top img-adjusted"  src="img/farmers.jpg">
+        <p>Farmer's Market <span class="badge badge-success">50% off Fruits</span></p>
+      </div>
+        <div class="card" style="border: 0;">
+        <img class="card-img-top img-adjusted"   src="img/wholefoods.jpg">
+          <p>Whole Foods <span class="badge badge-success">50% off Granola Bars</span></p>
+      </div>
+        <div class="card" style="border: 0;">
+        <img class="card-img-top img-adjusted" src="img/espresso.jpg">
+          <p>Espresso Royale <span class="badge badge-success">$2 Latte</span></p>
       </div>
     </div>
   </div>
