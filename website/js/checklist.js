@@ -15,7 +15,7 @@ fetch('get_hall_info')
                 first = false
             } else {
                 $('#dining-halls').append($(`
-                    <option value="${dining_hall_name}">${dining_hall_name}</option>
+                    <option value="${dining_hall_name}" disabled>${dining_hall_name}</option>
                 `))
             }
         }
