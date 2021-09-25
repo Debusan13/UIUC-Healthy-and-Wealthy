@@ -20,20 +20,57 @@ $(function() {
 
 })
 
-$("#cholesterol_progress").html(Math.floor(parseInt(localStorage.getItem("cholesterol")) * 0.4));
-$("#cholesterol_goal").html("/" + localStorage.getItem("cholesterol"));
+let a = localStorage.getItem("cholesterol");
+if (a == null) {
+    a = "100";
+    $("#cholesterol_progress").html(40);
 
-$("#daily_cal_progress").html(Math.floor(parseInt(localStorage.getItem("daily_cal")) * 0.2));
-$("#daily_cal_goal").html("/" + localStorage.getItem("daily_cal"));
+} else {
+    $("#cholesterol_progress").html(Math.floor(parseInt(localStorage.getItem("cholesterol")) * 0.4));
 
-$("#fat_progress").html(Math.floor(parseInt(localStorage.getItem("fat")) * 0.8));
-$("#fat_goal").html("/" + localStorage.getItem("fat"));
+}
+$("#cholesterol_goal").html("/" + a);
 
-$("#protein_progress").html(Math.floor(parseInt(localStorage.getItem("protien")) * 0.7));
-$("#protein_goal").html("/" + localStorage.getItem("protien"));
+let b = localStorage.getItem("daily_cal");
+if (b == null) {
+    b = "100";
+    $("#daily_cal_progress").html(20);
 
-$("#sugar_progress").html(Math.floor(parseInt(localStorage.getItem("sugar")) * 0.5));
-$("#sugar_goal").html("/" + localStorage.getItem("sugar"));
+} else {
+    $("#daily_cal_progress").html(Math.floor(parseInt(localStorage.getItem("daily_cal")) * 0.2));
+
+}
+$("#daily_cal_goal").html("/" + b);
+
+let c = localStorage.getItem("fat");
+if (c == null) {
+    c = "100";
+    $("#fat_progress").html(70);
+
+} else {
+    $("#fat_progress").html(Math.floor(parseInt(localStorage.getItem("fat")) * 0.8));
+
+}
+$("#fat_goal").html("/" + c);
+
+let d = localStorage.getItem("protien");
+if (d == null) {
+    d = "100";
+    $("#protein_progress").html(60);
+} else {
+    $("#protein_progress").html(Math.floor(parseInt(localStorage.getItem("protien")) * 0.7));
+
+}
+$("#protein_goal").html("/" + d);
+
+let e = localStorage.getItem("sugar");
+if (e == null) {
+    e = "100";
+    $("#sugar_progress").html(50);
+} else {
+    $("#sugar_progress").html(Math.floor(parseInt(localStorage.getItem("sugar")) * 0.5));
+}
+$("#sugar_goal").html("/" + e);
 
 console.log(localStorage.getItem("fat"));
 console.log(localStorage.getItem("protien"));
