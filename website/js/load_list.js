@@ -17,19 +17,37 @@ for (const [dining_hall_name, food_items] of Object.entries(dining_data)) {
 $("#dining-halls").on('change', function() {
     let valueSelected = this.value
 
-    $('#food-list').empty()
+    $('#food-list1').empty()
+    $('#food-list2').empty()
+    let lengthA = Math.floor(Object.entries(dining_data[valueSelected]).length / 2);
+    let lengthB = Object.entries(dining_data[valueSelected]).length - lengthA;
     for (const [food_name, data] of Object.entries(dining_data[valueSelected])) {
-        $('#food-list').append($(`
+        if (lengthA > 0) {
+            $('#food-list1').append($(`
             <div class="row food-list-entry">
-                <div class="col-3"></div>
-                <div class="text-left col-3">
+                <div style="text-align: left" class="col-6">
                     <label for="hour">${food_name}</label>
                 </div>
                 <div class="col-3">
                     <input type="number" id="${food_name}" min="0" max="10"/>
                 </div>
             </div>
-        `))
+        `   ));
+            lengthA -= 1;
+        } else {
+            $('#food-list2').append($(`
+            <div class="row food-list-entry">
+                <div style="text-align: left" class="col-6">
+                    <label for="hour">${food_name}</label>
+                </div>
+                <div class="col-3">
+                    <input type="number" id="${food_name}" min="0" max="10"/>
+                </div>
+            </div>
+        `   ));
+            lengthB -= 1;
+        }
+
     }
     // for (const [food_name, data] of Object.entries(dining_data[valueSelected])) {
     //     $('#food-list').append($(`
