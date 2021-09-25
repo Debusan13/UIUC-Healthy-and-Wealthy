@@ -8,24 +8,44 @@
 <!--the styling in order to put nav bar and favicon-->
 <body>
 <!--puts the adoption center at the top of the page and has the slogan-->
-<ul>
-  <li><a class="active" href="/">Home</a></li>
-  <li><a href="foodchecklist.html">Add meals</a></li>
-  <li><a href="yourprogress.html">Rewards</a></li>
-</ul>
-
+  <nav style="background-color: black;" class="navbar navbar-expand-lg navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+		<li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: white;" class="nav-link" href="/">Home</a></li>
+		<li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: white;" class="nav-link" href="/checklist">Add meals</a></li>
+		<li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: #007bff" class="nav-link" href="/progress">Rewards</a></li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
-  <h1 class="text-center">Rewards</h1>
-  <div class="mt-3 row">
+  <h1 class="mt-4 text-center">Points Until Next Reward</h1>
+              <div class="mt-2 row text-center cir">
+                <div class="col-xs-12 col-sm-12 offset-md-4 col-md-4 col-lg-4 col-xl-4">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#e6e6e6" stroke-width="12" />
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="#E84A27" stroke-width="12"
+                            stroke-dasharray="339.292" stroke-dashoffset="25.717" />
+                        <text x="50%" y="50%" text-anchor="middle" style="font-weight: bold; font-size: 35px;" class="inner">90</text>
+                          <text x="50%" y="70%" text-anchor="middle" style="font-size: 13px;" class="inner">/100</text>
+                    </svg>
+                </div>
+ 
+            </div>
+
+  <h1 class="mt-3 text-center">Rewards</h1>
+  <div class="row">
   <div class="col-12">
     <div class="d-flex align-items-stretch card-deck">
       <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted"  src="img/img1.jpg">
-        <p>Auntie Anne's <span class="badge badge-success">5% off</span></p>
+        <p>Maize Mexican Grill <span class="badge badge-success">10% off</span></p>
       </div>
         <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted"   src="img/img2.jpg">
-          <p>Bangkok Thai <span class="badge badge-success">10% off</span> <span class="badge badge-danger">Limited offer</span></p>
+          <p>Bangkok Thai <span class="badge badge-danger">Limited offer</span> <span class="badge badge-success">10% off</span></p>
       </div>
         <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted" src="img/img3.jpg">
@@ -39,7 +59,7 @@
     <div class="d-flex align-items-stretch card-deck">
       <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted"  src="img/img4.jpg">
-        <p>Mia Za's <span class="badge badge-success">5% off</span> <span class="badge badge-danger">Limited offer</span></p>
+        <p>Sakanaya <span class="badge badge-danger">Limited offer</span> <span class="badge badge-success">10% off</span></p>
       </div>
         <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted"   src="img/img5.jpg">
@@ -47,7 +67,7 @@
       </div>
         <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted" src="img/img6.jpg">
-          <p>Burrito King <span class="badge badge-success">10% off</span></p>
+          <p>Burrito King <span class="badge badge-success">5% off</span></p>
 
       </div>
     </div>
@@ -58,7 +78,7 @@
     <div class="d-flex align-items-stretch card-deck">
       <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted"  src="img/img7.jpg">
-          <p>Taco Bell <span class="badge badge-success">10% off</span></p>
+          <p>Smoothie King <span class="badge badge-success">10% off</span></p>
 
       </div>
         <div class="card" style="border: 0;">
@@ -68,7 +88,7 @@
       </div>
         <div class="card" style="border: 0;">
         <img class="card-img-top img-adjusted" src="img/img9.jpg">
-            <p>Walgreens <span class="badge badge-success">15% off</span> <span class="badge badge-danger">Limited offer</span></p>
+            <p>Walgreens <span class="badge badge-danger">Limited offer</span> <span class="badge badge-success">15% off</span></p>
 
       </div>
     </div>
@@ -78,6 +98,8 @@
 </div>
 
 </body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>

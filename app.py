@@ -42,17 +42,14 @@ def serve_js(path):
 def serve_css(path):
         return send_from_directory('website/css', path)
 
-@app.route('/pyghack2021main.html')
 @app.route('/')
 def serve_main():
     return send_from_directory('website', 'pyghack2021main.html')
 
-@app.route('/foodchecklist.html')
 @app.route('/checklist')
 def serve_checklist():
     return send_from_directory('website', 'foodchecklist.html')
 
-@app.route('/yourprogress.html')
 @app.route('/progress')
 def serve_progress():
     return send_from_directory('website', 'yourprogress.html')
