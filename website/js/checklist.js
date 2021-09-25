@@ -38,7 +38,7 @@ fetch('get_hall_info')
                             <input type="number" id="${food_name}" min="0" max="10"/>
                         </div>
                     </div>
-                `   ));
+                    `));
                     lengthA -= 1;
                 } else {
                     $('#food-list2').append($(`
