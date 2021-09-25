@@ -13,6 +13,10 @@ def parse_param(string):
     return string[string.index('(') + 1:string.index(')')]
 
 
+def clean(string):
+    return string.replace(u'\xa0', u' ')
+
+
 def get_dining_halls():
     res: Response = s.post("https://eatsmart.housing.illinois.edu/NetNutrition/46")
     soup = BeautifulSoup(res.content, features="html.parser")
@@ -80,14 +84,76 @@ def get_menu(menu_id):
     for row in c:
         children = list(row.children)
         if len(children) == 4:
-            result[children[1].text] = {}
+            js = children[0].select_one('td > input')
+            if js is not None:
+                js_code = js['onclick']
+                food_id = js_code[js_code.index(',') + 2:js_code.index(')')]
+                result[children[1].text] = {'food_id': food_id}
     return result
 
-with open('fuck.json', 'w') as f:
-    f.write(json.dumps(all_data, indent=2))
+def get_nutritional_info(food_id):
+    res: Response = s.post("https://eatsmart.housing.illinois.edu/NetNutrition/46/NutritionDetail/ShowItemNutritionLabel", data={
+        'detailOid': food_id
+    })
+    soup = BeautifulSoup(res.content, features="html.parser")
 
-# get_hall_options(1)
-# get_option_days_menus(2)
-# print(get_menu(1122722))
+    result = {}
+
+    table = soup.select_one('.cbo_nn_NutritionLabelTable')
+    children = list(table.children)
+    for child in children[6:-3]:
+        container = child.select_one('tr > td > table > tr > td > table > tr')
+        if container is None:
+            continue
+        items = list(container.children)
+        category_name = items[0].select_one('td > span').text
+        # print(category_name)
+        units = items[1].select_one('td > span').text
+        # print(units)
+        result[clean(category_name)] = clean(units).strip()
+    serving_size = clean(children[2].select_one('tr > td').text)
+    prefix = 'Serving Size: '
+    result['Serving Size'] = serving_size[serving_size.index(prefix) + len(prefix):]
+    return result
+
+
+def scrape_api():
+    hall_data = {}
+    i = 0
+    dining_halls = get_dining_halls()
+    for hall_name, hall_id in dining_halls.items():
+        hall_data[hall_name] = {}
+        options = get_hall_options(hall_id)
+        for option_name, option_id in options.items():
+            # all_data[hall_name][option_name] = {}
+            days_menus = get_option_days_menus(option_id)
+            for day, periods in days_menus.items():
+                # all_data[hall_name][option_name][day] = {}
+                for period_name, menu_id in periods.items():
+                    # all_data[hall_name][option_name][day][period_name] = {}
+                    menu = get_menu(menu_id)
+                    for menu_item_name, data in menu.items():
+                        if i % 100 == 0:
+                            print(i)
+                        hall_data[hall_name][menu_item_name] = get_nutritional_info(data['food_id'])
+                        i += 1
+                        # all_data[hall_name][option_name][day][period_name][menu_item_name] = {}
+                break  # only choose one day
+    return hall_data
+
+
+if __name__ == '__main__':
+    # get_dining_halls()
+    # get_hall_options(1)
+    # get_option_days_menus(2)
+    # get_menu(1117675)
+
+    # print(get_nutritional_info(97570309))
+    with open('food_data.json', 'w') as f:
+        f.write(json.dumps(scrape_api()))
+# print(get_nutritional_info(98022490))
+
+# with open('lol.html', 'wb') as f:
+#     f.write(get_nutritional_info(98022490))
 
 # hi Louis!!!!! :D Your computer is really nice to type in. I feel cool. 
