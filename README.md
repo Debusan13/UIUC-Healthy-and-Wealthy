@@ -1,4 +1,4 @@
-# UIUC Nutrition Planner
+# Healthy and Wealthy
 
 
 # TODO
