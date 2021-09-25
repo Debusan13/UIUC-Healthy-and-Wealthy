@@ -8,7 +8,6 @@ fetch('get_hall_info')
         dining_data = data
         let first = true
         for (const [dining_hall_name, food_items] of Object.entries(data)) {
-            console.log(food_items);
             if (first) {
                 $('#dining-halls').append($(`
                     <option value="${dining_hall_name}" selected>${dining_hall_name}</option>
@@ -16,7 +15,7 @@ fetch('get_hall_info')
                 first = false
             } else {
                 $('#dining-halls').append($(`
-                    <option value="${dining_hall_name}" disabled>${dining_hall_name}</option>
+                    <option value="${dining_hall_name}">${dining_hall_name}</option>
                 `))
             }
         }
@@ -28,15 +27,25 @@ fetch('get_hall_info')
             $('#food-list2').empty()
             let lengthA = Math.floor(Object.entries(dining_data[valueSelected]).length / 2);
             let lengthB = Object.entries(dining_data[valueSelected]).length - lengthA;
+            
             for (const [food_name, data] of Object.entries(dining_data[valueSelected])) {
+                let reward = data["Reward"];
+                let badge = "";
+                if (reward == 5 || reward == 4) {
+                    badge = "<span class='badge bg-success'>" + reward + "</span>";
+                } else if (reward == 3 || reward == 2) {
+                    badge = "<span class='badge bg-info'>" + reward + "</span>";
+                } else {
+                    badge = "<span class='badge bg-warning'>" + reward + "</span>";
+                }
                 if (lengthA > 0) {
                     $('#food-list1').append($(`
                     <div class="row food-list-entry">
                         <div style="text-align: left" class="col-6">
-                            <label for="hour">${food_name}</label>
+                        <label for="hour">` + badge + ` ${food_name}</label>
                         </div>
                         <div class="col-3">
-                            <input type="number" id="${food_name}" min="0" max="10"/>
+                            <input type="number" id=" ${food_name}" data-reward="${reward}" min="0" max="10"/>
                         </div>
                     </div>
                     `));
@@ -45,10 +54,10 @@ fetch('get_hall_info')
                     $('#food-list2').append($(`
                     <div class="row food-list-entry">
                         <div style="text-align: left" class="col-6">
-                            <label for="hour">${food_name}</label>
+                            <label for="hour">` + badge + ` ${food_name}</label>
                         </div>
                         <div class="col-3">
-                            <input type="number" id="${food_name}" min="0" max="10"/>
+                            <input type="number" id="${food_name}" data-reward="${reward}" min="0" max="10"/>
                         </div>
                     </div>
                 `   ));
@@ -73,12 +82,13 @@ $('#form-thingy').on('submit', function(e) {
     e.preventDefault()
 
     const myname = $('#name-field').val()
-
+    console.log("SDfdsd")
     let points = 0
     $('.food-list-entry > div > input').each(function(index, element) {
         let point = parseInt(element.value)
         if (Number.isInteger(point)) {
-            points += point
+            console.log($(element).attr('data-reward'))
+            points += point * parseInt($(element).attr('data-reward'))
         }
     })
 
