@@ -8,6 +8,7 @@ fetch('get_hall_info')
         dining_data = data
         let first = true
         for (const [dining_hall_name, food_items] of Object.entries(data)) {
+            console.log(food_items);
             if (first) {
                 $('#dining-halls').append($(`
                     <option value="${dining_hall_name}" selected>${dining_hall_name}</option>
