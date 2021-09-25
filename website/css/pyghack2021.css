@@ -18,6 +18,7 @@ body, html {
   transform: translate(-50%, -50%);
   color: white;
 }
+/*
 ul {
     list-style-type: none;
     margin: 0;
@@ -30,7 +31,7 @@ li {
     float: left;
 }
 
-li a {
+li a, #point-label {
     display: block;
     color: white;
     text-align: center;
@@ -44,14 +45,19 @@ a:hover:not(.active) {
 
 .active {
 background-color:#990000;
-}
- body {
+} */
+body {
     background-color:white;
- }
- h2,h3,h4,h5,h6,p {text-align:center; color: black; float}
- h1{text-align:center; float}
+}
+h2,h3,h4,h5,h6,p {
+    text-align: center;
+    color: black;
+}
+h1 {
+    text-align: center;
+}
  
- * {
+* {
     box-sizing: border-box;
 	/* the code for the navigation bar */
 }

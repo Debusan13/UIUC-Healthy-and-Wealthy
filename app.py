@@ -32,15 +32,15 @@ hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7
 
 @app.route('/img/<path:path>')
 def serve_img(path):
-        return send_from_directory('website/img', path)
+    return send_from_directory('website/img', path)
 
 @app.route('/js/<path:path>')
 def serve_js(path):
-        return send_from_directory('website/js', path)
+    return send_from_directory('website/js', path)
 
 @app.route('/css/<path:path>')
 def serve_css(path):
-        return send_from_directory('website/css', path)
+    return send_from_directory('website/css', path)
 
 @app.route('/pyghack2021main.html')
 @app.route('/', methods=['POST', 'GET'])
@@ -52,19 +52,16 @@ def serve_main():
     return send_from_directory('website', 'pyghack2021main.html')
     # return render_template('website/pyghack2021main.html')
 
-@app.route('/foodchecklist.html')
 @app.route('/checklist')
 def serve_checklist():
     return send_from_directory('website', 'foodchecklist.html')
 
-@app.route('/yourprogress.html')
 @app.route('/progress')
 def serve_progress():
     return send_from_directory('website', 'yourprogress.html')
 
 @app.route('/<path:path>')
 def serve_add_meals(path):
-    print(path)
     return send_from_directory('website', path)
 
 @app.route('/get_hall_info')
