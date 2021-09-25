@@ -55,11 +55,14 @@ $('#form-thingy').on('submit', function(e) {
             points += point
         }
     })
+
+    let currentPoints = localStorage.getItem('mypoints') || 0
+    currentPoints = parseInt(currentPoints)
     
-    $('#point-label').html(myname + ', have ' + points + ' points available')
+    $('#point-count').html(`${myname}, you have ${currentPoints + points} points`)
     localStorage.setItem('myname', myname)
     localStorage.setItem('mynetid', myname)
-    localStorage.setItem('mypoints', points)
+    localStorage.setItem('mypoints', currentPoints + points)
     window.scrollTo(0, 0)
 })
 
@@ -68,15 +71,13 @@ $(function() {
     const mynetid = localStorage.getItem('mynetid')
     const mypoints = localStorage.getItem('mypoints')
     if (myname !== null && mypoints !== null && myname !== undefined && mypoints !== undefined) {
-        $('#point-label').html(myname + ', you have ' + mypoints + ' points available')
+        $('#point-count').html(`${myname}, you have ${mypoints} points`)
         $('#name-field').val(myname)
         $('#netid-field').val(mynetid)
     } else {
         $('#point-label').html('No points!')
     }
 })
-
-
 
 // for (const [dining_hall_name, food_items] of Object.entries(dining_data)) {
 //     for (const [food_name, data] of Object.entries(food_items)) {
