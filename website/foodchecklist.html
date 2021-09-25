@@ -5,43 +5,62 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <link rel="stylesheet" type="text/css" href="css/pyghack2021.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <!--the styling in order to put nav bar and favicon-->
   <body>
-    <!--puts the adoption center at the top of the page and has the slogan-->
-    <ul>
-      <li><a class="active" href="/">Home</a></li>
-      <li><a href="foodchecklist.html">Add meals</a></li>
-      <li><a href="yourprogress.html">Rewards</a></li>
-      <li><a id="point-label">Point: 0</a></li>
-    </ul>
-    <form id="form-thingy" align="center">
-      <fieldset style="color: black;">
+    <!--puts the adoption center at the top of the page and has the slogan-->    
+    <nav style="background-color: black;" class="navbar navbar-expand-lg navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: white;" class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: #007bff" class="nav-link" href="/checklist">Add meals</a></li>
+        <li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: white;" class="nav-link" href="/progress">Rewards</a></li>
+      </ul>
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+      <li class="nav-item"><a style="font-weight: bold; font-size: 18px; color: white" id="point-count" class="nav-link"></a></li>
+    </div>
+    </nav>
+    <form id="form-thingy">
+      <fieldset style="color: black;" >
         <br />
-        *Name: <input style="border-radius: 25px;" id="name-field" type="text" name="name" required />
-        <!--type in answer-->
-        *NetID: <input style="border-radius: 100px;" type="text" name="email" size="50" required />
-        <label for="workload">Dining Hall:</label>
-        <select id="dining-halls">
-        </select>
+        <div class="d-flex justify-content-center">
+          *Name: &nbsp;<input style="border-radius: 25px;" id="name-field" type="text" name="name" required />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          *NetID: &nbsp;<input style="border-radius: 100px;" id="netid-field" type="text" name="email" size="50" required />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <label for="workload">Dining Hall:</label>
+          &nbsp;
+          <select id="dining-halls">
+          </select>
+          <br />
+        </div>
         <br />
-        <div style="height: 500px; border: 2px solid" class="container overflow-auto" id="food-list"></div>
-        <p>Anything else you would like to share?</p>
-        <textarea style="width: 200px; height: 50px;"></textarea>
-        <!--creates the text box for your week-->
+        <div style="height: 500px; border: 2px solid" class="container overflow-auto" >
+          <div class="row mt-3 mb-3">
+            <div class="col-1"></div>
+            <div class="col-6" id="food-list1"></div>
+            <div class="col-5" id="food-list2"></div>
+          </div>
+        </div>
       </fieldset>
-      <br />
-      <br />
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-danger">Reset</button>
-
-      <!--creates submit and reset button-->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;</button>
+        &nbsp;
+        <button type="reset" class="btn btn-danger">&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;</button>
+      </div>
     </form>
-    <script src="js/list.js"></script>
-    <script src="js/load_list.js"></script>
+    <script src="js/checklist.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
