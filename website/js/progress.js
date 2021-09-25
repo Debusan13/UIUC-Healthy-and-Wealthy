@@ -16,4 +16,25 @@ $(function() {
         $('#point-count').html('')
         $('#my-points').html('0')
     }
+
+
 })
+
+$("#cholesterol_progress").html(Math.floor(parseInt(localStorage.getItem("cholesterol")) * 0.4));
+$("#cholesterol_goal").html("/" + localStorage.getItem("cholesterol"));
+
+$("#daily_cal_progress").html(Math.floor(parseInt(localStorage.getItem("daily_cal")) * 0.2));
+$("#daily_cal_goal").html("/" + localStorage.getItem("daily_cal"));
+
+$("#fat_progress").html(Math.floor(parseInt(localStorage.getItem("fat")) * 0.8));
+$("#fat_goal").html("/" + localStorage.getItem("fat"));
+
+$("#protein_progress").html(Math.floor(parseInt(localStorage.getItem("protien")) * 0.7));
+$("#protein_goal").html("/" + localStorage.getItem("protien"));
+
+$("#sugar_progress").html(Math.floor(parseInt(localStorage.getItem("sugar")) * 0.5));
+$("#sugar_goal").html("/" + localStorage.getItem("sugar"));
+
+console.log(localStorage.getItem("fat"));
+console.log(localStorage.getItem("protien"));
+console.log(localStorage.getItem("sugar"));
