@@ -5,33 +5,31 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <link rel="stylesheet" type="text/css" href="css/pyghack2021.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <!--the styling in order to put nav bar and favicon-->
   <body>
-    <!--puts the adoption center at the top of the page and has the slogan-->
     <ul>
-      <li><a class="active" href="/">Home</a></li>
+      <li><a class="active" href="pyghack2021main.html">Home</a></li>
       <li><a href="foodchecklist.html">Add meals</a></li>
       <li><a href="yourprogress.html">Rewards</a></li>
-      <li><a id="point-label">Point: 0</a></li>
+      <li><a id="point-label"></a></li>
     </ul>
     <form id="form-thingy" align="center">
       <fieldset style="color: black;">
         <br />
         *Name: <input style="border-radius: 25px;" id="name-field" type="text" name="name" required />
         <!--type in answer-->
-        *NetID: <input style="border-radius: 100px;" type="text" name="email" size="50" required />
+        *NetID: <input style="border-radius: 100px;" id="netid-field" type="text" name="email" size="50" required />
         <label for="workload">Dining Hall:</label>
         <select id="dining-halls">
         </select>
         <br />
         <div style="height: 500px; border: 2px solid" class="container overflow-auto" id="food-list"></div>
-        <p>Anything else you would like to share?</p>
-        <textarea style="width: 200px; height: 50px;"></textarea>
-        <!--creates the text box for your week-->
       </fieldset>
       <br />
       <br />

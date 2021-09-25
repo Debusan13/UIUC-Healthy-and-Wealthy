@@ -30,7 +30,7 @@ li {
     float: left;
 }
 
-li a {
+li a, #point-label {
     display: block;
     color: white;
     text-align: center;
