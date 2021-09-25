@@ -79,3 +79,10 @@ background-color:#990000;
     margin-right: auto;
 }
 /* Creates 2 columns */
+
+.card-img, .card-img-top {
+    border-radius: 10%;
+    width: 100%;
+    border-top-left-radius: 10%!important;
+    border-top-right-radius: 10%!important;
+}

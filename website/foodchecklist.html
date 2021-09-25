@@ -6,6 +6,8 @@
     <meta content="utf-8" http-equiv="encoding">
     <link rel="stylesheet" type="text/css" href="pyghack2021.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <!--the styling in order to put nav bar and favicon-->
   <body>
@@ -25,18 +27,20 @@
         <select id="dining-halls">
         </select>
         <br />
-        <div id="food-list"></div>
+        <div style="height: 500px; border: 2px solid" class="container overflow-auto" id="food-list"></div>
         <p>Anything else you would like to share?</p>
-        <textarea style="width: 200px; height: 50px; border-radius: 25px;"></textarea>
+        <textarea style="width: 200px; height: 50px;"></textarea>
         <!--creates the text box for your week-->
       </fieldset>
       <br />
       <br />
-      <input type="submit" value="Submit" />
-      <input type="reset" value="Reset" />
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-danger">Reset</button>
+
       <!--creates submit and reset button-->
     </form>
     <script src="js/list.js"></script>
     <script src="js/load_list.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
