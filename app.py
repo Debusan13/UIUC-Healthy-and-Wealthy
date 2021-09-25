@@ -1,7 +1,7 @@
 import json
 from flask.helpers import send_from_directory
 import requests
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from main import *
 
 # hall_data = {}
@@ -43,9 +43,14 @@ def serve_css(path):
         return send_from_directory('website/css', path)
 
 @app.route('/pyghack2021main.html')
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def serve_main():
+    if not request.get_json() == None:
+        data = request.get_json()
+        targets = get_targets(data)
+        return jsonify(targets)
     return send_from_directory('website', 'pyghack2021main.html')
+    # return render_template('website/pyghack2021main.html')
 
 @app.route('/foodchecklist.html')
 @app.route('/checklist')
@@ -70,3 +75,4 @@ def get_hall_info():
         mimetype='application/json'
     )
     return response
+
