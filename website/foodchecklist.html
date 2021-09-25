@@ -16,13 +16,14 @@
       <li><a class="active" href="pyghack2021main.html">Home</a></li>
       <li><a href="foodchecklist.html">Add meals</a></li>
       <li><a href="yourprogress.html">Rewards</a></li>
+      <li><a id="point-label">Point: 0</a></li>
     </ul>
-    <form action="firstformsubmission.html" method="post" align="center">
+    <form id="form-thingy" align="center">
       <fieldset style="color: black;">
         <br />
-        *NetID: <input style="border-radius: 25px;" type="text" name="name" required />
+        *Name: <input style="border-radius: 25px;" id="name-field" type="text" name="name" required />
         <!--type in answer-->
-        *Password: <input style="border-radius: 100px;" type="text" name="email" size="50" required />
+        *NetID: <input style="border-radius: 100px;" type="text" name="email" size="50" required />
         <label for="workload">Dining Hall:</label>
         <select id="dining-halls">
         </select>
