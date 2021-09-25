@@ -37,14 +37,18 @@
 <div class='container'>
 	<h3>What is your weight?</h3>
 		<form class='info'>
-			<input type=number size=15 id='weight'>
-			<input type=number size=15 id='height_ft'>
-			<input type=number size=15 id='height_in'>
-			<input type=number size=15 id='age'>
+			<input type=number size=15 id='weight' placeholder='Weight'>
+			<input type=number size=15 id='height_ft' placeholder='Height (ft)'>
+			<input type=number size=15 id='height_in' placeholder='Height (in)'>
+			<input type=number size=15 id='age' placeholder='Age'>
+      <br>
+      <label>Assigned gender at birth: </label>
 			<select id='sex'>
 				<option value="1">Male</option>
 				<option value="2">Female</option>
 			</select>
+      <br>
+      <label>Activity Level: </label>
 			<select id='activity_level'>
 				<option value="1">Little to no excercise</option>
 				<option value="2">Light excercise, 1-3 days per week</option>
@@ -52,13 +56,15 @@
 				<option value="4">Hard excercise, 6-7 days per week</option>
 				<option value="5">Very hard excercise, 2 times per day</option>
 			</select>
+      <br>
+      <label>Goal: </label>
 			<select id='goal'>
 				<option value="1">Gain Weight</option>
 				<option value="2">Lose Weightk</option>
 				<option value="3">Maintain Weight</option>
 			</select>
-
-			<button class='btn btn-default' type='button' id='process_input'>Submit</button>
+      <br>
+			<button class='btn btn-primary' type='button' id='process_input'>Submit</button>
 		</form>
 </div>
 <p>result</p>
