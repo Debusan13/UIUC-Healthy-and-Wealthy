@@ -28,7 +28,7 @@ from main import *
 
 app = Flask(__name__)
 
-hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/aa7ca29284606c3c7b3c12302766c126a4096131/food_data.json').text
+hall_data = requests.get('https://gist.githubusercontent.com/LouisAsanaka/d74ea7462b13a1f5b4d4212853fe6ced/raw/35e7e263654e6c3549b37096037a1ded72fb08ae/food_data.json').text
 
 @app.route('/img/<path:path>')
 def serve_img(path):
